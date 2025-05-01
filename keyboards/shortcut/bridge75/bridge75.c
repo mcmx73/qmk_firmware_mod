@@ -7,6 +7,10 @@
 #    include "wireless.h"
 #endif
 
+#ifdef CONSOLE_ENABLE
+#include <stdio.h>
+#endif
+
 typedef union {
     uint32_t raw;
     struct {
@@ -193,6 +197,14 @@ bool process_record_wls(uint16_t keycode, keyrecord_t *record) {
 }
 #endif
 
+layer_state_t layer_state_set_kb(layer_state_t state){
+    if (debug_enable){
+        uint8_t current_layer = get_highest_layer(layer_state);
+        printf("Layer changed to: %x", current_layer);
+    }
+    return state;
+}
+
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
 
     if (process_record_user(keycode, record) != true) {
@@ -207,6 +219,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
 
     switch (keycode) {
         default:
+            printf("Key pressed:%x", keycode);
             return true;
     }
 

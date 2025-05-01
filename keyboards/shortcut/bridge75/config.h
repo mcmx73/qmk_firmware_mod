@@ -9,8 +9,6 @@
 
 #endif
 
-// #undef DYNAMIC_KEYMAP_ENABLE
-// #define DYNAMIC_KEYMAP_ENABLE
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6
 
 #define USB_POWER_EN_PIN A14
