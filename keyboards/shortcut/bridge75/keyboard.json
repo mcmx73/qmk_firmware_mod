@@ -1,7 +1,7 @@
 {
-    "manufacturer": " ",
-    "keyboard_name": "Bridge75",
-    "maintainer": "JonyLee@HFD",
+    "manufacturer": "ShortCut",
+    "keyboard_name": "Bridge75/Mod",
+    "maintainer": "Loki",
     "url": "",
     "processor": "WB32FQ95",
     "bootloader": "wb32-dfu",
@@ -10,8 +10,8 @@
     },
     "usb": {
         "device_version": "1.0.0",
-        "vid": "0x0C45",
-        "pid": "0xFEFE",
+        "vid": "0xFEFE",
+        "pid": "0x0C45",
         "force_nkro": true,
         "suspend_wakeup_delay": 1000
     },
@@ -24,7 +24,7 @@
         }
     },
     "features": {
-        "bootmagic": true,
+        "bootmagic": false,
         "command": false,
         "console": false,
         "extrakey": true,
@@ -86,7 +86,8 @@
             "typing_heatmap": true,
             "solid_reactive_simple": true,
             "solid_reactive": true,
-            "multisplash": true
+            "multisplash": true,
+            "alpha_mods": true
         },
         "layout": [
             { "flags": 1, "matrix": [0,0],  "x":   7, "y": 0 },
