@@ -35,6 +35,6 @@
 #define RGB_MATRIX_KEYPRESSES
 
 #define WS2812_TIMING 1250  // Total bit length (TH+TL) nanoseconds
-#define WS2812_T1H 900       // “1” High phase length of bit nanoseconds
-#define WS2812_T0H 350       // “0” High phase length of bit nanoseconds
+#define WS2812_T1H 900       // "1" High phase length of bit nanoseconds
+#define WS2812_T0H 350       // "0" High phase length of bit nanoseconds
 #define WS2812_TRST_US 280   // Length of reset phase in microseconds
