@@ -1,6 +1,10 @@
 # QMK Mmod based om QMK Firmware for SC Bridge75 board
 
 this firmware modifaied for only Bridge75 board, based on shoertut studio QMQ version
+Basic changes:
+
+* Increase layers num from 4 up 6
+* Todo: add layer modifief keys light up
 
 # Quantum Mechanical Keyboard Firmware
 
