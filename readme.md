@@ -1,4 +1,4 @@
-# QMK Mmod based om QMK Firmware for SC Bridge75 board
+# QMK Mod based om QMK Firmware for SC Bridge75 board
 
 this firmware modifaied for only Bridge75 board, based on shoertut studio QMQ version
 Basic changes:
