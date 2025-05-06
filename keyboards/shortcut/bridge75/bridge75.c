@@ -207,10 +207,10 @@ bool process_record_wls(uint16_t keycode, keyrecord_t *record) {
 #endif
 
 layer_state_t layer_state_set_kb(layer_state_t state){
-    if (debug_enable){
-        uint8_t current_layer = get_highest_layer(layer_state);
-        printf("Layer changed to: %x", current_layer);
-    }
+    #ifdef CONSOLE_ENABLE
+    uint8_t current_layer = get_highest_layer(layer_state);
+    printf("213 Layer changed to: 0x%x\n", current_layer);
+    #endif
     return state;
 }
 
@@ -228,7 +228,9 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
 
     switch (keycode) {
         default:
-            printf("Key pressed:%x", keycode);
+        #ifdef CONSOLE_ENABLE
+        printf("234 key pressed: 0x%x\n", keycode);
+        #endif
             return true;
     }
 
@@ -484,25 +486,25 @@ void wireless_send_nkro(report_nkro_t *report) {
     md_send_nkro(wls_report_nkro);
 }
 
-// bool rgb_matrix_indicators_kb(void) {
-//     if (!rgb_matrix_indicators_user()) {
-//         return false;
-//     }
-//     rgb_matrix_set_color(index, red, green, blue);
-//     return true;
-// }
-
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     if (get_highest_layer(layer_state) > 0) {
         uint8_t layer = get_highest_layer(layer_state);
-
+        #ifdef CONSOLE_ENABLE
+        printf("492 Current layer: 0x%x\n", layer);
+        #endif
         for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
             for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
                 uint8_t index = g_led_config.matrix_co[row][col];
 
-                if (index >= led_min && index < led_max && index != NO_LED &&
-                keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
-                    rgb_matrix_set_color(index, RGB_GREEN);
+                if(layer==1 || layer==3 || layer==5){
+                    if (index >= led_min && index < led_max && index != NO_LED &&
+                    keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
+                        rgb_matrix_set_color(index, RGB_ORANGE);
+                    }
+                    // else if (index >= led_min && index < led_max && index != NO_LED &&
+                    //     keymap_key_to_keycode(layer, (keypos_t){col,row}) == KC_TRNS){
+                    //     rgb_matrix_set_color(index, 0x00, 0x00, 0x03);
+                    // }
                 }
             }
         }
